@@ -12,7 +12,7 @@ class RedditScraper:
         self.last_id = ''
 
     def get_new_subs(self):
-        raylway = 1
+        raylway = True
         for subm in self.raw_obj.get_subreddit(c_.bot_config.subreddit).get_new():
             if subm.id == self.last_id:
                 break
@@ -21,10 +21,8 @@ class RedditScraper:
                 if subm.score >= 1:
                     if raylway > 0:
                         self.last_id = subm.id
-                        raylway -= 1
-                        yield subm.url
-                    else:
-                        yield subm.url
+                        raylway = False                  
+                yield subm.url
         
             
 
