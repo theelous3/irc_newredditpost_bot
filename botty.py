@@ -18,19 +18,19 @@ class Botty:
 
     def you_pass_butter(self):
         while True:
-            for i in r_a_f.scraper.get_new_subs():
-                cnect.connection.send('PRIVMSG {}'.format(c_.bot_config.channel), i)
+            for item_tuple in r_a_f.scraper.get_new_subs():
+                cnect.connection.send('PRIVMSG {}'.format(c_.bot_config.channel), 
+                                    item_tuple[0], 
+                                    'http://redd.it/' + item_tuple[1])
             time.sleep(30)
 
 
 if __name__ == "__main__":
     botty = Botty()
-
-    t1 = threading.Thread(target=cnect.connection.ping_broda)
-    t2 = threading.Thread(target=botty.you_pass_butter)
-
     botty.connect()
+    t1 = threading.Thread(target=cnect.connection.ping_broda)
     t1.start()
+    t2 = threading.Thread(target=botty.you_pass_butter)
     t2.start()
 
 
