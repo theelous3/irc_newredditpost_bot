@@ -40,15 +40,19 @@ class Connection:
 
     def establish_connection(self):
     #   start connection
-        connection.connect(c_.bot_config.host, c_.bot_config.port)
-        connection.send('USER ' + (c_.bot_config.user + ' ')*3 + 'python bot')
-        connection.send('NICK ' + c_.bot_config.nick)
-        connection.send('JOIN ' + c_.bot_config.channel)
+        self.connect(c_.bot_config.host, c_.bot_config.port)
+        self.send('USER ' + (c_.bot_config.user + ' ')*3 + 'python bot')
+        self.send('NICK ' + c_.bot_config.nick)
+        self.send('JOIN ' + c_.bot_config.channel)
+        
+
+    def ping_broda(self):
+    #   pingpingpingping
         while True:
             for line in connection.recv():
                 print(line)
                 if 'PING' in line:
-                    connection.send('PONG ' + line.split()[1])
+                    self.send('PONG ' + line.split()[1])
     
 
 
@@ -56,4 +60,3 @@ class Connection:
 
 connection = Connection()
 connection.establish_connection()
-

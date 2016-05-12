@@ -1,6 +1,7 @@
 import praw
 import time
 import config as c_
+from collections import OrderedDict
 
 
 class RedditScraper:
@@ -15,14 +16,12 @@ class RedditScraper:
             if subm.id == self.last_id:
                 break
             time_delta = time.time() - subm.created_utc
-            if time_delta >= 300 and time_delta < 2000:
+            if time_delta >= 300 and time_delta < 6000:
                 if subm.score >= 1:
                     self.last_id = subm.id
                     yield subm.url
+        
+            
 
 scraper = RedditScraper()
-'''
-while True:
-    for i in scraper.get_new_subs():
-        print(i)
-    time.sleep(5) '''
+
