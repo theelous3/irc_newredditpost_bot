@@ -1,11 +1,13 @@
 {
-    "host": "",
+    "host": "irc.freenode.net",
     "port": 6667,
-    "nick": "",
-    "user": "",
+    "nick": "lp_newpost_bot",
+    "user": "lp_newpost_bot",
     "nickserv": null,
-    "channel": "",
-    "owner": "",
-    "subreddit": "",
-    "reddit_usrnm": ""
+    "channel": "#stankmeme",
+    "owner": "theelous3",
+    "subreddit": "learnprogramming",
+    "reddit_usrnm": "/u/theelous3",
+    "woo_o": 300,
+    "woo_c": 6000
 }
