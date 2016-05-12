@@ -4,7 +4,7 @@ An IRC bot that sends new submissions from a subreddits /new feed to an IRC chan
 
 Posts /new submissions after they have been alive for a period of time, and have positive karma.
 Once a submission has been sent to the IRC channel it will not be sent again.
-Posts have a user definable window of opportunity in which they can attain positive karma and become eligible for use. After this period is over they will no longer be considered.
+Posts have a user definable window of opportunity in which new posts can attain positive karma and become eligible for use. After this period is over they will no longer be considered.
 
 The window of opportunity is set in config.json by:
 
