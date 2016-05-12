@@ -50,7 +50,6 @@ class Connection:
     #   pingpingpingping
         while True:
             for line in connection.recv():
-                print(line)
                 if 'PING' in line:
                     self.send('PONG ' + line.split()[1])
     

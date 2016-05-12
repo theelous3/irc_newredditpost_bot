@@ -20,8 +20,8 @@ class Botty:
         while True:
             for item_tuple in r_a_f.scraper.get_new_subs():
                 cnect.connection.send('PRIVMSG {}'.format(c_.bot_config.channel), 
-                                    item_tuple[0], 
-                                    'http://redd.it/' + item_tuple[1])
+                                    ' :"' + item_tuple[0] + '"', 
+                                    'Link: http://redd.it/' + item_tuple[1])
             time.sleep(30)
 
 
@@ -30,8 +30,6 @@ if __name__ == "__main__":
     botty.connect()
     t1 = threading.Thread(target=cnect.connection.ping_broda)
     t1.start()
+    time.sleep(20)
     t2 = threading.Thread(target=botty.you_pass_butter)
     t2.start()
-
-
-
