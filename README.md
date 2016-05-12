@@ -2,4 +2,4 @@
 
 i.o.u. x1 licence
 
-big ups da raylu and the Gs in ##learnpython
+big ups the fine lads and lass' in ##learnpython
