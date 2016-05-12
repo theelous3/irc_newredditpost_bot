@@ -6,14 +6,17 @@ Posts /new submissions after they have been alive for a period of time, and have
 Once a submission has been sent to the IRC channel it will not be sent again.
 Posts have a user definable window of opportunity in which they can attain positive karma and become eligible for use. After this period is over they will no longer be considered.
 
-The window of opportunity is set by:
+The window of opportunity is set in config.json by:
 
 "woo_o": int <-(open) 
 and 
 "woo_c": int <-(close)
 
-i.o.u. x1 licence
+The rest should be self explainitory.
 
+<Licence>:
+-Do whatevs. 
+</Licence>
 
 
 big ups the fine lads and lass' in ##learnpython
