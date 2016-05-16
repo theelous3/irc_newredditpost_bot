@@ -20,10 +20,5 @@ class RedditScraper:
                 if subm.id not in self.used_list and subm.score >= c_.bot_config.karma_score:
                     self.used_list.insert(0, subm.id)
                     yield (subm.title, subm.id)
-                fuckit
-            fuckit    
-
-        print(self.used_list)
-            
 
 scraper = RedditScraper()
