@@ -1,13 +1,14 @@
 {
     "host": "irc.freenode.net",
     "port": 6667,
-    "nick": "lp_newpost_bot",
-    "user": "lp_newpost_bot",
+    "nick": "lp|new",
+    "user": "lp|new",
     "nickserv": null,
     "channel": "#stankmeme",
     "owner": "theelous3",
     "subreddit": "learnprogramming",
     "reddit_usrnm": "/u/theelous3",
     "woo_o": 300,
-    "woo_c": 6000
+    "woo_c": 480,
+    "karma_score": 1
 }

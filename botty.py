@@ -11,6 +11,8 @@ class Botty:
     def __init__(self):
         self.q_in = queue.Queue()
         self.q_out = queue.Queue()
+        self.choc_digest = []
+        self.dump_time = time.time()
 
 
     def connect(self):
@@ -18,11 +20,24 @@ class Botty:
 
     def you_pass_butter(self):
         while True:
-            for item_tuple in r_a_f.scraper.get_new_subs():
-                cnect.connection.send('PRIVMSG {}'.format(c_.bot_config.channel), 
-                                    ' :"' + item_tuple[0] + '"', 
-                                    'Link: http://redd.it/' + item_tuple[1])
             time.sleep(30)
+            for item_tuple in r_a_f.scraper.get_new_subs():
+                list(item_tuple)
+                if len(item_tuple[0]) > 53:
+                    tuple_replace = list(item_tuple[0])
+                    tuple_replace = ((''.join(tuple_replace[:48]) + '[...]'), item_tuple[1])
+                    self.choc_digest.append(tuple_replace)
+                else:
+                    self.choc_digest.append(item_tuple)
+                print(item_tuple)
+            if time.time() - self.dump_time > 1800:
+                self.dump_time = time.time()
+                for item_tuple in self.choc_digest:
+                    cnect.connection.send('PRIVMSG {}'.format(c_.bot_config.channel), 
+                                        ' :\x01ACTION "' + item_tuple[0] + '"', 
+                                        'http://redd.it/' + item_tuple[1] + ' \x01')
+                    self.choc_digest = []
+            
 
 
 if __name__ == "__main__":
