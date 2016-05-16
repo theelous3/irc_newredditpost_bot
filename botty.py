@@ -9,9 +9,7 @@ import queue
 class Botty:
 
     def __init__(self):
-        self.q_in = queue.Queue()
-        self.q_out = queue.Queue()
-        self.choc_digest = []
+         self.choc_digest = []
         self.dump_time = time.time()
 
 
