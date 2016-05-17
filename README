@@ -15,6 +15,10 @@ and
 
 The rest should be self explainitory.
 
+Dependancies:
+PRAW - https://praw.readthedocs.io/en/stable/pages/getting_started.html
+Requests - http://docs.python-requests.org/en/master/user/install/#install
+
 <Licence>
 -Do whatevs. 
 </Licence>
