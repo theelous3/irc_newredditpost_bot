@@ -10,5 +10,6 @@
     "reddit_usrnm": "",
     "woo_o": 300,
     "woo_c": 480,
+    "digest_interval": 1800,
     "karma_score": 1
 }
