@@ -20,7 +20,6 @@ class Botty:
         while True:
             time.sleep(30)
             for item_tuple in r_a_f.scraper.get_new_subs():
-                list(item_tuple)
                 if len(item_tuple[0]) > 53:
                     tuple_replace = list(item_tuple[0])
                     tuple_replace = ((''.join(tuple_replace[:48]) + '[...]'), item_tuple[1])
