@@ -2,7 +2,8 @@
 
 An IRC bot that sends new submissions from a subreddits /new feed to an IRC channel.
 
-Posts /new submissions after they have been alive for a period of time, and have positive karma.
+Posts are held and displayed in a digest format  at a set interval.
+Digest gathers new submissions after they have been alive for a period of time, and meet a karma threshold.
 Once a submission has been sent to the IRC channel it will not be sent again.
 Posts have a user definable window of opportunity in which new posts can attain positive karma and become eligible for use. After this period is over they will no longer be considered.
 
