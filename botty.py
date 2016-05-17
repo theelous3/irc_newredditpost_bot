@@ -27,7 +27,7 @@ class Botty:
                 else:
                     self.choc_digest.append(item_tuple)
                 print(item_tuple)
-            if time.time() - self.dump_time > 1800:
+            if time.time() - self.dump_time > c_.bot_config.digest_interval:
                 self.dump_time = time.time()
                 for item_tuple in self.choc_digest:
                     cnect.connection.send('PRIVMSG {}'.format(c_.bot_config.channel), 
