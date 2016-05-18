@@ -1,9 +1,6 @@
 import connection as cnect
 import reddit_api_fondler as r_a_f
 import config as c_ 
-import threading
-import time
-import queue
 
 
 class Botty:
@@ -11,12 +8,11 @@ class Botty:
     def __init__(self):
         self.choc_digest = []
 
-
-
     def connect(self):
         cnect.connection.establish_connection()
 
     def hey_listen(self):
+    #   listens for irc pings and bot commands
         while True:
             for line in cnect.connection.recv():
                 print(line)
@@ -42,6 +38,7 @@ class Botty:
                                                                                 c_.bot_config.subreddit))
 
     def you_pass_butter(self):
+    #   fetches new reddit posts
         for item_tuple in r_a_f.scraper.get_new_subs():
             if len(item_tuple[0]) > 53:
                 tuple_replace = list(item_tuple[0])
