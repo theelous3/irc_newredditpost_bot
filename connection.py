@@ -44,15 +44,6 @@ class Connection:
         self.send('USER ' + (c_.bot_config.user + ' ')*3 + 'python bot')
         self.send('NICK ' + c_.bot_config.nick)
         self.send('JOIN ' + c_.bot_config.channel)
-        
-
-    def ping_broda(self):
-    #   pingpingpingping
-        while True:
-            for line in connection.recv():
-                print(line)
-                if 'PING' in line:
-                    self.send('PONG ' + line.split()[1])
     
 
 
