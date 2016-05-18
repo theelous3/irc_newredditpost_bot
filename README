@@ -13,6 +13,10 @@ The window of opportunity is set in config.json by:
 and 
 "woo_c": int <-(close)
 
+The phrase to request bots should contain no whitespace, and is set in config.json by:
+
+"phrase": 'phrase_here'
+
 The rest should be self explainitory.
 
 Dependancies:
