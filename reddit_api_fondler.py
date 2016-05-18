@@ -1,7 +1,6 @@
 import praw
 import time
 import config as c_
-from collections import OrderedDict
 
 
 class RedditScraper:
