@@ -28,6 +28,12 @@ class Botty:
                             self.send_help()
                         elif 'source' in line.lower():
                             self.send_source()
+                    else:
+                        if c_.bot_config.nick in line.split(':',2)[1] and 'VERSION' in line.split(':',2)[2]:
+                            self.send_version(line.split(':',2)[1].split('!')[0])
+
+
+
                 except IndexError:
                     continue
                 
@@ -40,6 +46,9 @@ class Botty:
                                                                                 c_.bot_config.subreddit))
     def send_source(self):
         cnect.connection.send('PRIVMSG {} :'.format(c_.bot_config.channel) + 'My guts: https://github.com/theelous3/irc_newredditpost_bot')
+
+    def send_version(self, nick):
+        cnect.connection.send('NOTICE {} :'.format(nick) + 'irc_newredditpost_bot 2.1.0')
 
     def you_pass_butter(self):
     #   https://youtu.be/ekP0LQEsUh0?t=52
