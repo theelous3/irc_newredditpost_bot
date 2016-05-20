@@ -31,9 +31,6 @@ class Botty:
                     else:
                         if c_.bot_config.nick in line.split(':',2)[1] and 'VERSION' in line.split(':',2)[2]:
                             self.send_version(line.split(':',2)[1].split('!')[0])
-
-
-
                 except IndexError:
                     continue
                 
