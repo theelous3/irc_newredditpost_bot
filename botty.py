@@ -3,29 +3,31 @@ import reddit_api_fondler as r_a_f
 import config as c_ 
 
 
+
 class Botty:
+
 
     def __init__(self):
         self.choc_digest = []
+
 
     def connect(self):
         cnect.connection.establish_connection()
 
     def hey_listen(self):
-    #   listens for irc pings and bot commands
         while True:
             for line in cnect.connection.recv():
                 print(line)
                 if line.split()[0] == 'PING':
                     self.ping(line.split()[1])
                 try:
-                    line_parts = line.split(':')
-                    message = line_parts[2]
-                    if message.split()[0] == c_.bot_config.nick:
-                        if message.split()[1] == c_.bot_config.phrase:
+                    if line.split(':',2)[2].startswith(c_.bot_config.nick):
+                        if c_.bot_config.phrase in line.lower():
                             self.you_pass_butter()
-                        if 'help' in line.lower():
+                        elif 'help' in line.lower():
                             self.send_help()
+                        elif 'source' in line.lower():
+                            self.send_source()
                 except IndexError:
                     continue
                 
@@ -36,9 +38,11 @@ class Botty:
         cnect.connection.send('PRIVMSG {} :'.format(c_.bot_config.channel) + 'Type "{} {}" and I\'ll get the latest posts from {} :D'.format(c_.bot_config.nick,
                                                                                 c_.bot_config.phrase,
                                                                                 c_.bot_config.subreddit))
+    def send_source(self):
+        cnect.connection.send('PRIVMSG {} :'.format(c_.bot_config.channel) + 'My guts: https://github.com/theelous3/irc_newredditpost_bot')
 
     def you_pass_butter(self):
-    #   fetches new reddit posts
+    #   https://youtu.be/ekP0LQEsUh0?t=52
         for item_tuple in r_a_f.scraper.get_new_subs():
             if len(item_tuple[0]) > 53:
                 tuple_replace = list(item_tuple[0])
